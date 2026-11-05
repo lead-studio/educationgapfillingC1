@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Education & Learning — Gapfill Exercise</title>
+  <style>
+    :root{--max-width:1100px;--accent:#156b6b;--muted:#526868}
+    *{box-sizing:border-box}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0;color:#042d2d;background:#fbfdfa}
+    .wrap{max-width:var(--max-width);margin:20px auto;padding:18px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    h1{font-size:1.4rem;color:var(--accent);margin:0}
+    p.lead{margin:10px 0 18px;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:20px}
+    article{background:#fff;padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(10,20,30,0.06)}
+    aside{background:#fcfffe;padding:14px;border-radius:10px;border:1px solid #e6efee}
+    h2{color:#0b4d4d;margin:10px 0}
+
+    /* gapfill inputs */
+    .gap{display:inline-block;min-width:110px;border-bottom:2px dashed #cfecec;padding:2px 6px;border-radius:4px;background:#f8fffe}
+    input.gap-in{border:0;background:transparent;outline:none;font-weight:600;color:#0b5250;width:100%}
+
+    .controls{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    button{background:var(--accent);color:white;border:0;padding:8px 12px;border-radius:8px;cursor:pointer}
+    button.secondary{background:#eef7f6;color:#054545}
+    .small{padding:6px 10px;font-size:0.95rem}
+
+    .vocab-list{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+    .vocab-list li{padding:10px;border-radius:8px;background:#ffffffef;border:1px solid #e6efee}
+    .term{font-weight:700;color:#0b5b58}
+    .def{display:block;color:#576b6a;font-size:0.95rem;margin-top:6px}
+
+    footer{margin-top:12px;color:var(--muted);font-size:0.95rem}
+
+    /* mobile behavior: hide aside by default and provide toggle */
+    .drawer-toggle{display:none}
+    .drawer{position:fixed;right:0;top:0;height:100vh;width:320px;transform:translateX(100%);transition:transform .25s ease;z-index:60}
+    .drawer.open{transform:translateX(0)}
+
+    .drawer .content{padding:16px;height:100%;overflow:auto;background:#fcfffe;border-left:1px solid #e6efee}
+    .drawer .close{display:flex;justify-content:flex-end}
+    .float-btn{display:none}
+
+    @media (max-width:820px){
+      .grid{grid-template-columns:1fr}
+      aside{display:none}
+      .drawer-toggle{display:block}
+      .float-btn{display:block;position:fixed;right:14px;bottom:14px;background:var(--accent);color:#fff;padding:12px;border-radius:999px;box-shadow:0 6px 18px rgba(10,20,30,0.18);z-index:70}
+    }
+
+    /* feedback */
+    .correct{background:#e6faf6;border-color:#9be6d9}
+    .incorrect{background:#fff3f3;border-color:#f3c2c2}
+    .answer-reveal{margin-top:8px;color:#084b4b;font-size:0.95rem}
+
+    label.hint{display:inline-block;margin-left:8px;color:#6f8b8a;font-size:0.95rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Gapfill: Education & Learning</h1>
+      <div style="color:var(--muted);font-size:0.95rem">Responsive — definitions are on the right (tap the button on mobile)</div>
+    </header>
+
+    <p class="lead">Fill each blank using the exact words from the list on the right. On small screens, tap "Definitions" to open the list.</p>
+
+    <div class="grid">
+      <article>
+        <h2>Complete the text</h2>
+        <p>Education should do more than transfer facts; it must <span class="gap"><input type="text" class="gap-in" data-index="1" placeholder="(1)"></span> abilities and habits that students carry into life. When learners are given an <span class="gap"><input type="text" class="gap-in" data-index="2" placeholder="(2)"></span> to explore projects, their creativity often <span class="gap"><input type="text" class="gap-in" data-index="3" placeholder="(3)"></span> new ideas.</p>
+
+        <p>Teachers who <span class="gap"><input type="text" class="gap-in" data-index="4" placeholder="(4)"></span> industry partners can make classroom work more <span class="gap"><input type="text" class="gap-in" data-index="5" placeholder="(5)"></span> real‑world problem solving. Some students must <span class="gap"><input type="text" class="gap-in" data-index="6" placeholder="(6)"></span> earlier than others — balancing study and part‑time work.</p>
+
+        <p>While independence builds resilience, educators should help learners avoid unnecessary <span class="gap"><input type="text" class="gap-in" data-index="7" placeholder="(7)"></span>. By offering mentorship and accessible resources, schools can reduce feelings of <span class="gap"><input type="text" class="gap-in" data-index="8" placeholder="(8)"></span> in some and increase <span class="gap"><input type="text" class="gap-in" data-index="9" placeholder="(9)"></span> in others.</p>
+
+        <h2>Designing opportunities</h2>
+        <p>Curriculum designers often <span class="gap"><input type="text" class="gap-in" data-index="10" placeholder="(10)"></span> — allocating time, funds, or attention to different programs. Thoughtful allocation is <span class="gap"><input type="text" class="gap-in" data-index="11" placeholder="(11)"></span> equity: extra support should go to those who need it most.</p>
+
+        <p>When assessment and project work <span class="gap"><input type="text" class="gap-in" data-index="12" placeholder="(12)"></span> knowledge and practice, students develop transferable skills and become more <span class="gap"><input type="text" class="gap-in" data-index="13" placeholder="(13)"></span> in their fields. It is tempting to <span class="gap"><input type="text" class="gap-in" data-index="14" placeholder="(14)"></span> new ideas that challenge tradition, but constructive critique is more useful than <span class="gap"><input type="text" class="gap-in" data-index="15" placeholder="(15)"></span>.</p>
+
+        <h2>Collaboration & Growth</h2>
+        <p>Good mentorship includes showing learners how to <span class="gap"><input type="text" class="gap-in" data-index="16" placeholder="(16)"></span> useful strategies or solutions through experimentation. Teachers should explain how concepts <span class="gap"><input type="text" class="gap-in" data-index="17" placeholder="(17)"></span> different careers and life choices. A classroom that encourages open dialogue is likely to <span class="gap"><input type="text" class="gap-in" data-index="18" placeholder="(18)"></span> innovation and lifelong learning.</p>
+
+        <div class="controls">
+          <button id="check" class="small">Check answers</button>
+          <button id="show" class="secondary small">Show answers</button>
+          <button id="reset" class="secondary small">Reset</button>
+          <label class="hint">Hint: use the exact words/phrases from the list on the right.</label>
+        </div>
+
+        <div id="result" style="margin-top:12px"></div>
+
+        <footer>When you're ready, press "Check answers". Correct blanks will be highlighted green.</footer>
+      </article>
+
+      <aside>
+        <h2>Definitions (word bank)</h2>
+        <ul class="vocab-list">
+          <li><span class="term">fend for yourself</span><span class="def">— to take care of your own needs independently.</span></li>
+          <li><span class="term">hit on sth.</span><span class="def">— to discover or think of an idea, often by chance.</span></li>
+          <li><span class="term">allocate sth to sb</span><span class="def">— to assign resources or tasks to someone.</span></li>
+          <li><span class="term">be conducive to sth</span><span class="def">— to make a certain outcome likely or possible.</span></li>
+          <li><span class="term">blend</span><span class="def">— to mix elements so they work together.</span></li>
+          <li><span class="term">contentment</span><span class="def">— a feeling of satisfaction and peace.</span></li>
+          <li><span class="term">disdain</span><span class="def">— a lack of respect or scorn for something.</span></li>
+          <li><span class="term">entitlement</span><span class="def">— an expectation of special treatment or rights.</span></li>
+          <li><span class="term">liaise with</span><span class="def">— to communicate and coordinate with others.</span></li>
+          <li><span class="term">pertinent to</span><span class="def">— relevant or applicable to a matter.</span></li>
+          <li><span class="term">scoff at</span><span class="def">— to speak about something with scorn or derision.</span></li>
+          <li><span class="term">unfettered scope</span><span class="def">— freedom to explore without restrictions.</span></li>
+          <li><span class="term">inhibition</span><span class="def">— a restraint on behavior or expression.</span></li>
+          <li><span class="term">liken sth to sth</span><span class="def">— to compare one thing to another.</span></li>
+          <li><span class="term">nurture</span><span class="def">— to care for and encourage development.</span></li>
+          <li><span class="term">pertain to</span><span class="def">— to relate to or be about.</span></li>
+          <li><span class="term">teem with</span><span class="def">— to be full of or swarming with.</span></li>
+          <li><span class="term">accomplished</span><span class="def">— highly skilled; showing great expertise.</span></li>
+        </ul>
+      </aside>
+    </div>
+
+    <!-- drawer for mobile -->
+    <div class="drawer" id="drawer">
+      <div class="content">
+        <div class="close"><button id="closeDrawer" class="secondary">Close</button></div>
+        <h2>Definitions (word bank)</h2>
+        <ul class="vocab-list" style="margin-top:8px">
+          <li><span class="term">fend for yourself</span><span class="def">— to take care of your own needs independently.</span></li>
+          <li><span class="term">hit on sth.</span><span class="def">— to discover or think of an idea, often by chance.</span></li>
+          <li><span class="term">allocate sth to sb</span><span class="def">— to assign resources or tasks to someone.</span></li>
+          <li><span class="term">be conducive to sth</span><span class="def">— to make a certain outcome likely or possible.</span></li>
+          <li><span class="term">blend</span><span class="def">— to mix elements so they work together.</span></li>
+          <li><span class="term">contentment</span><span class="def">— a feeling of satisfaction and peace.</span></li>
+          <li><span class="term">disdain</span><span class="def">— a lack of respect or scorn for something.</span></li>
+          <li><span class="term">entitlement</span><span class="def">— an expectation of special treatment or rights.</span></li>
+          <li><span class="term">liaise with</span><span class="def">— to communicate and coordinate with others.</span></li>
+          <li><span class="term">pertinent to</span><span class="def">— relevant or applicable to a matter.</span></li>
+          <li><span class="term">scoff at</span><span class="def">— to speak about something with scorn or derision.</span></li>
+          <li><span class="term">unfettered scope</span><span class="def">— freedom to explore without restrictions.</span></li>
+          <li><span class="term">inhibition</span><span class="def">— a restraint on behavior or expression.</span></li>
+          <li><span class="term">liken sth to sth</span><span class="def">— to compare one thing to another.</span></li>
+          <li><span class="term">nurture</span><span class="def">— to care for and encourage development.</span></li>
+          <li><span class="term">pertain to</span><span class="def">— to relate to or be about.</span></li>
+          <li><span class="term">teem with</span><span class="def">— to be full of or swarming with.</span></li>
+          <li><span class="term">accomplished</span><span class="def">— highly skilled; showing great expertise.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <button class="float-btn" id="openDrawer">Definitions</button>
+
+  </div>
+
+  <script>
+    const answers = {
+      1: 'nurture',
+      2: 'unfettered scope',
+      3: 'teem with',
+      4: 'liaise with',
+      5: 'be conducive to sth',
+      6: 'fend for yourself',
+      7: 'inhibition',
+      8: 'entitlement',
+      9: 'contentment',
+      10: 'allocate sth to sb',
+      11: 'pertinent to',
+      12: 'blend',
+      13: 'accomplished',
+      14: 'scoff at',
+      15: 'disdain',
+      16: 'hit on sth.',
+      17: 'pertain to',
+      18: 'be conducive to sth'
+    };
+
+    function normalize(s){
+      return (s||'').toString().trim().toLowerCase().replace(/[\u2018\u2019\u201c\u201d]/g,'').replace(/\s+/g,' ');
+    }
+
+    function checkAnswers(){
+      const inputs = document.querySelectorAll('input.gap-in');
+      let correct = 0;
+      inputs.forEach(inp=>{
+        const idx = inp.dataset.index;
+        const val = normalize(inp.value);
+        const expected = normalize(answers[idx]);
+        const parent = inp.parentElement;
+        parent.classList.remove('correct','incorrect');
+        if(val === expected){ parent.classList.add('correct'); correct++; }
+        else { parent.classList.add('incorrect'); }
+      });
+      const result = document.getElementById('result');
+      result.innerHTML = `<strong>${correct} / ${Object.keys(answers).length}</strong> correct`;
+    }
+
+    function showAnswers(){
+      const inputs = document.querySelectorAll('input.gap-in');
+      inputs.forEach(inp=>{
+        const idx = inp.dataset.index;
+        inp.value = answers[idx];
+        inp.parentElement.classList.remove('incorrect');
+        inp.parentElement.classList.add('correct');
+      });
+      document.getElementById('result').innerHTML = `All answers shown.`;
+    }
+
+    function resetAll(){
+      const inputs = document.querySelectorAll('input.gap-in');
+      inputs.forEach(inp=>{ inp.value=''; inp.parentElement.classList.remove('correct','incorrect'); });
+      document.getElementById('result').innerHTML = '';
+    }
+
+    document.getElementById('check').addEventListener('click', checkAnswers);
+    document.getElementById('show').addEventListener('click', showAnswers);
+    document.getElementById('reset').addEventListener('click', resetAll);
+
+    // Drawer for mobile
+    const drawer = document.getElementById('drawer');
+    const open = document.getElementById('openDrawer');
+    const close = document.getElementById('closeDrawer');
+    if(open){ open.addEventListener('click',()=>drawer.classList.add('open')); }
+    if(close){ close.addEventListener('click',()=>drawer.classList.remove('open')); }
+
+    // Close drawer when clicking outside (mobile)
+    document.addEventListener('click', (e)=>{
+      if(window.innerWidth <= 820){
+        if(!drawer.classList.contains('open')) return;
+        const inside = drawer.contains(e.target) || open.contains(e.target);
+        if(!inside) drawer.classList.remove('open');
+      }
+    });
+
+    // Improve UX: allow Enter to check
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') checkAnswers(); });
+  </script>
+</body>
+</html>
